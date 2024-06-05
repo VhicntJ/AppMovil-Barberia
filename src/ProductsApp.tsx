@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { Text, View, useColorScheme } from 'react-native'
 import { StackNavigator } from './presentation/navigation/StackNavigator';
 import Toast from 'react-native-toast-message'; // Importa la librería de Toast
+import 'react-native-gesture-handler';
 
 export const ProductsApp = () => {
   

@@ -10,6 +10,7 @@ import { HomeSeleccionFinal } from '../screens/product/HomeSeleccionFinal';
 import { HomeSeleccionProduc } from '../screens/product/HomeSeleccionProduc';
 import { HomeSeleccionProducFinal } from '../screens/product/HomeSeleccionProducFinal';
 import { HomeCarrito } from '../screens/product/HomeCarrito';
+import { ProfileScreen } from '../screens/Profile/ProfileScreen';
 
 
 export type RootStackParams = {
@@ -24,6 +25,7 @@ export type RootStackParams = {
     HomeSeleccionProduc: undefined;
     HomeSeleccionProducFinal: undefined;
     HomeCarrito: undefined;
+    ProfileScreen: undefined;
 
 }
 
@@ -56,6 +58,7 @@ export const  StackNavigator = ()=> {
       <Stack.Screen name="HomeSeleccionProduc" component={HomeSeleccionProduc} />
       <Stack.Screen name="HomeSeleccionProducFinal" component={HomeSeleccionProducFinal} />
       <Stack.Screen name="HomeCarrito" component={HomeCarrito} />
+      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
     </Stack.Navigator>
   );
 }
