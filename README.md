@@ -4,8 +4,6 @@
 
 BarberApp es una aplicación móvil desarrollada en **React Native** para **Android**, diseñada para gestionar y mejorar la experiencia en barberías. La aplicación permite a los usuarios agendar citas con barberos, informarse sobre diferentes estilos de corte de pelo, comprar productos de barbería, y más. Además, ofrece a los barberos una plataforma para administrar su barbería, gestionar horarios y añadir productos al catálogo.
 
-![BarberApp]
-
 ## Descripción del Proyecto
 
 Este proyecto fue desarrollado como parte del curso **"Electivo de especialización profesional 1"** por **Vicente Julio** y **Rony Perez**.
@@ -24,14 +22,15 @@ Este proyecto fue desarrollado como parte del curso **"Electivo de especializaci
 ## Tecnologías Utilizadas
 
 - **React Native**: Framework principal para el desarrollo de la aplicación móvil.
-![React Native](https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg)
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Native" width="50" height="50">
 - **TypeScript**: Lenguaje de programación que añade tipos estáticos opcionales a JavaScript, utilizado para mejorar la calidad del código.
-   ![TypeScript](https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg)
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript" width="50" height="50">
 - **Docker**: Contenedorización de servicios para facilitar el desarrollo y despliegue.
-![Docker](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/1280px-Docker_%28container_engine%29_logo.svg.png)
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/1280px-Docker_%28container_engine%29_logo.svg.png" alt="Docker" width="50" height="50">
   - **MySQL**: Base de datos relacional para el almacenamiento de información estructurada.
-  ![MySQL](https://upload.wikimedia.org/wikipedia/fr/thumb/6/62/MySQL.svg/1280px-MySQL.svg.png)
+    <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/62/MySQL.svg/1280px-MySQL.svg.png" alt="MySQL" width="50" height="50">
   - **MongoDB**: Base de datos no relacional para el manejo de datos flexibles y no estructurados.
-  ![MongoDB](https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png)
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png" alt="MongoDB" width="50" height="50">
+
 
 
