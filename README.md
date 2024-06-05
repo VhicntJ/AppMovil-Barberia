@@ -21,30 +21,49 @@ Este proyecto fue desarrollado como parte del curso **"Electivo de especializaci
 
 ## Tecnologías Utilizadas
 
-<div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Native" width="50" height="50">
-  <span>**React Native**: Framework principal para el desarrollo de la aplicación móvil.</span>
-</div>
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Native" width="50" height="50">
+    </td>
+    <td>
+      **React Native**: Framework principal para el desarrollo de la aplicación móvil.
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript" width="50" height="50">
+    </td>
+    <td>
+      **TypeScript**: Lenguaje de programación que añade tipos estáticos opcionales a JavaScript, utilizado para mejorar la calidad del código.
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/1280px-Docker_%28container_engine%29_logo.svg.png" alt="Docker" width="170" height="50">
+    </td>
+    <td>
+      **Docker**: Contenedorización de servicios para facilitar el desarrollo y despliegue.
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/62/MySQL.svg/1280px-MySQL.svg.png" alt="MySQL" width="160" height="50">
+    </td>
+    <td>
+      **MySQL**: Base de datos relacional para el almacenamiento de información estructurada.
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png" alt="MongoDB" width="150" height="50">
+    </td>
+    <td>
+      **MongoDB**: Base de datos no relacional para el manejo de datos flexibles y no estructurados.
+    </td>
+  </tr>
+</table>
 
-<div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript" width="50" height="50">
-  <span>**TypeScript**: Lenguaje de programación que añade tipos estáticos opcionales a JavaScript, utilizado para mejorar la calidad del código.</span>
-</div>
-
-<div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/1280px-Docker_%28container_engine%29_logo.svg.png" alt="Docker" width="170" height="50">
-  <span>**Docker**: Contenedorización de servicios para facilitar el desarrollo y despliegue.</span>
-</div>
-
-<div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/62/MySQL.svg/1280px-MySQL.svg.png" alt="MySQL" width="130" height="50">
-  <span>**MySQL**: Base de datos relacional para el almacenamiento de información estructurada.</span>
-</div>
-
-<div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png" alt="MongoDB" width="150" height="50">
-  <span>**MongoDB**: Base de datos no relacional para el manejo de datos flexibles y no estructurados.</span>
-</div>
 
 
 
