@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { Layout, Text, BottomNavigation, BottomNavigationTab, Input, Divider, Icon, Button } from '@ui-kitten/components';
 import { MyIcon } from '../../components/ui/MyIcon';
+import { IonIcon } from '../../components/ui/IonIcon';
+import { useNavigation } from '@react-navigation/native';
 
 export const HomeSeleccionProducFinal = () => {
   const [visible, setVisible] = useState(false);
@@ -48,6 +50,30 @@ export const HomeSeleccionProducFinal = () => {
 
   const topState = useBottomNavigationState();
   const bottomState = useBottomNavigationState();
+
+ 
+  
+  const [selectedIndex, setSelectedIndex] = useState(1);
+  const navigation = useNavigation();
+  const navigateToScreen = (index: number) => {
+    setSelectedIndex(index); // Actualiza el estado del índice seleccionado al cambiar de pantalla
+    switch (index) {
+      case 0:
+        navigation.navigate('Home2Screen' as never);
+        break;
+      case 1:
+        navigation.navigate('HomeSeleccionProduc' as never);
+        break;
+      case 2:
+        navigation.navigate('HomeSeleccion' as never);
+        break;
+      case 3:
+        navigation.navigate('HomeCarrito' as never);
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#FFF9F6' }}>
@@ -139,10 +165,14 @@ export const HomeSeleccionProducFinal = () => {
 </ScrollView>
         <Divider />
 
-        <BottomNavigation style={{ marginVertical: 8 }} {...bottomState}>
+        <BottomNavigation
+          style={{ marginVertical: 8 }}
+          selectedIndex={selectedIndex} // Utiliza el estado local del índice seleccionado
+          onSelect={index => navigateToScreen(index)}
+        >
           <BottomNavigationTab icon={() => <MyIcon name="home-outline" />} />
-          <BottomNavigationTab icon={() => <MyIcon name="question-mark-outline" />} />
-          <BottomNavigationTab icon={() => <MyIcon name="question-mark-outline" />} />
+          <BottomNavigationTab icon={() => <IonIcon name="cut-outline" />} />
+          <BottomNavigationTab icon={() => <IonIcon name="happy-outline" />} />
           <BottomNavigationTab icon={() => <MyIcon name="shopping-cart-outline" />} />
           <BottomNavigationTab icon={() => <MyIcon name="person-outline" />} onPress={() => setVisible(true)} />
         </BottomNavigation>

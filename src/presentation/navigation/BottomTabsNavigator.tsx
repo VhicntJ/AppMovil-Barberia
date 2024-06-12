@@ -16,3 +16,4 @@ export const BottomTabNavigator= () =>{
     </Tab.Navigator>
   );
 }
+

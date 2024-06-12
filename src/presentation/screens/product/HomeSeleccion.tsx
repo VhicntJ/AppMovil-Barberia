@@ -7,6 +7,8 @@ import { FullScreenLoader } from '../../components/ui/FullScreenLoader';
 import { SafeAreaView, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { MyIcon } from '../../components/ui/MyIcon';
 import React,{useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { IonIcon } from '../../components/ui/IonIcon';
 
 
 
@@ -15,13 +17,16 @@ export const HomeSeleccion = () => {
   const [visible, setVisible] = React.useState(false);
   const [likedItems, setLikedItems] = useState<number[]>([]);
 
+  const navigation = useNavigation();
+  const [selectedIndex, setSelectedIndex] = useState(2); // Estado local para el índice seleccionado
   const useBottomNavigationState = (initialState = 0): BottomNavigationProps => {
-        const [selectedIndex, setSelectedIndex] = React.useState(initialState);
-        return { selectedIndex, onSelect: setSelectedIndex };
-      };
+    const [selectedIndex, setSelectedIndex] = React.useState(initialState);
+    return { selectedIndex, onSelect: setSelectedIndex };
+  };
 
       const handleItemPress = (item: number) => {
         console.log(`Item ${item} pressed`);
+        navigation.navigate('HomeSeleccionFinal' as never);
         // Aquí puedes agregar la lógica para manejar el evento de clic en el ítem
       };
       const handleHeartPress = (item: number) => {
@@ -33,8 +38,27 @@ export const HomeSeleccion = () => {
           }
         });
       };
-        const topState = useBottomNavigationState();
-        const bottomState = useBottomNavigationState();
+        
+
+      const navigateToScreen = (index: number) => {
+        setSelectedIndex(index); // Actualiza el estado del índice seleccionado al cambiar de pantalla
+        switch (index) {
+          case 0:
+            navigation.navigate('Home2Screen' as never);
+            break;
+          case 1:
+            navigation.navigate('HomeSeleccionProduc' as never);
+            break;
+          case 2:
+            navigation.navigate('HomeSeleccion' as never);
+            break;
+          case 3:
+            navigation.navigate('HomeCarrito' as never);
+            break;
+          default:
+            break;
+        }
+      };
         return (
           <SafeAreaView style={{ flex: 1, backgroundColor: "#FFF9F6" }}>
             <Layout style={{ flex: 1, backgroundColor: "#FFF9F6", margin: 20 }}>
@@ -75,13 +99,17 @@ export const HomeSeleccion = () => {
       
                 <Divider />
       
-                <BottomNavigation style={{ marginVertical: 8 }} {...bottomState}>
-                  <BottomNavigationTab icon={() => <MyIcon name="home-outline" />} />
-                  <BottomNavigationTab icon={() => <MyIcon name="question-mark-outline" />} />
-                  <BottomNavigationTab icon={() => <MyIcon name="question-mark-outline" />} />
-                  <BottomNavigationTab icon={() => <MyIcon name="shopping-cart-outline" />} />
-                  <BottomNavigationTab icon={() => <MyIcon name="person-outline" />} onPress={() => setVisible(true)} />
-                </BottomNavigation>
+                <BottomNavigation
+          style={{ marginVertical: 8 }}
+          selectedIndex={selectedIndex} // Utiliza el estado local del índice seleccionado
+          onSelect={index => navigateToScreen(index)}
+        >
+          <BottomNavigationTab icon={() => <MyIcon name="home-outline" />} />
+          <BottomNavigationTab icon={() => <IonIcon name="cut-outline" />} />
+          <BottomNavigationTab icon={() => <IonIcon name="happy-outline" />} />
+          <BottomNavigationTab icon={() => <MyIcon name="shopping-cart-outline" />} />
+          <BottomNavigationTab icon={() => <MyIcon name="person-outline" />} onPress={() => setVisible(true)} />
+        </BottomNavigation>
               </Layout>
             </Layout>
           </SafeAreaView>

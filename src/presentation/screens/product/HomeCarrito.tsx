@@ -3,23 +3,47 @@ import { SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, View } from 're
 import React, { useState } from 'react';
 import { MyIcon } from '../../components/ui/MyIcon';
 import Toast from 'react-native-toast-message';
+import { useNavigation } from '@react-navigation/native';
+import { IonIcon } from '../../components/ui/IonIcon';
 
 export const HomeCarrito = () => {
   const [visible, setVisible] = React.useState(false);
   const [likedItems, setLikedItems] = useState<number[]>([]);
   const [selectedBarber, setSelectedBarber] = useState<number | null>(null);
+  const navigation = useNavigation();
   
-
+  const [selectedIndex, setSelectedIndex] = useState(3);
   const useBottomNavigationState = (initialState = 0): BottomNavigationProps => {
     const [selectedIndex, setSelectedIndex] = React.useState(initialState);
     return { selectedIndex, onSelect: setSelectedIndex };
   };
 
+
   const handleBarberPress = (barber: number) => {
     setSelectedBarber(barber);
   };
+  
 
-  const bottomState = useBottomNavigationState();
+  const navigateToScreen = (index: number) => {
+    setSelectedIndex(index); // Actualiza el estado del índice seleccionado al cambiar de pantalla
+    switch (index) {
+      case 0:
+        navigation.navigate('Home2Screen' as never);
+        break;
+      case 1:
+        navigation.navigate('HomeSeleccionProduc' as never);
+        break;
+      case 2:
+        navigation.navigate('HomeSeleccion' as never);
+        break;
+      case 3:
+        navigation.navigate('HomeCarrito' as never);
+        break;
+      default:
+        break;
+    }
+  };
+
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFF9F6" }}>
@@ -122,13 +146,17 @@ export const HomeCarrito = () => {
   
           <Divider />
   
-          <BottomNavigation style={{ marginVertical: 8 }} {...bottomState}>
-            <BottomNavigationTab icon={() => <MyIcon name="home-outline" />} />
-            <BottomNavigationTab icon={() => <MyIcon name="question-mark-outline" />} />
-            <BottomNavigationTab icon={() => <MyIcon name="question-mark-outline" />} />
-            <BottomNavigationTab icon={() => <MyIcon name="shopping-cart-outline" />} />
-            <BottomNavigationTab icon={() => <MyIcon name="person-outline" />} onPress={() => setVisible(true)} />
-          </BottomNavigation>
+          <BottomNavigation
+          style={{ marginVertical: 8 }}
+          selectedIndex={selectedIndex} // Utiliza el estado local del índice seleccionado
+          onSelect={index => navigateToScreen(index)}
+        >
+          <BottomNavigationTab icon={() => <MyIcon name="home-outline" />} />
+          <BottomNavigationTab icon={() => <IonIcon name="cut-outline" />} />
+          <BottomNavigationTab icon={() => <IonIcon name="happy-outline" />} />
+          <BottomNavigationTab icon={() => <MyIcon name="shopping-cart-outline" />} />
+          <BottomNavigationTab icon={() => <MyIcon name="person-outline" />} onPress={() => setVisible(true)} />
+        </BottomNavigation>
         </Layout>
       </Layout>
     </SafeAreaView>

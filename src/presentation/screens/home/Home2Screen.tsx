@@ -1,15 +1,18 @@
 import React from 'react';
-import { BottomNavigation, BottomNavigationProps, BottomNavigationTab, Divider, Icon, Input, Layout, Modal, Text } from '@ui-kitten/components';
+import { BottomNavigation, BottomNavigationProps, BottomNavigationTab, Divider, Input,Icon, Layout, Modal, Text } from '@ui-kitten/components';
 import { SafeAreaView, StyleSheet, ScrollView, View, Image, TouchableOpacity, Button } from 'react-native';
 import { MyIcon } from '../../components/ui/MyIcon';
 import { useNavigation } from '@react-navigation/native';
 import { useAuthStore } from '../../store/auth/useAuthStore';
 
+
+import { IonIcon } from '../../components/ui/IonIcon';
+
 export const Home2Screen = () => {
   const [visible, setVisible] = React.useState(false);
 
   const useBottomNavigationState = (initialState = 0): BottomNavigationProps => {
-    const [selectedIndex, setSelectedIndex] = React.useState(initialState);
+    const [selectedIndex, setSelectedIndex] = React.useState<number>(initialState);
     return { selectedIndex, onSelect: setSelectedIndex };
   };
 
@@ -23,7 +26,24 @@ export const Home2Screen = () => {
   const navigation = useNavigation();
 
   const {logout} = useAuthStore();
-
+  const navigateToScreen = (index: number) => {
+    switch (index) {
+      case 0:
+        navigation.navigate('Home2Screen' as never);
+        break;
+      case 1:
+        navigation.navigate('HomeSeleccionProduc' as never);
+        break;
+      case 2:
+        navigation.navigate('HomeSeleccion' as never);
+        break;
+      case 3:
+        navigation.navigate('HomeCarrito' as never);
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFF9F6" }}>
@@ -100,11 +120,12 @@ export const Home2Screen = () => {
         <Divider />
         <BottomNavigation
           style={{ marginVertical: 8 }}
-          {...bottomState}
+          selectedIndex={topState.selectedIndex}
+          onSelect={index => navigateToScreen(index)}
         >
           <BottomNavigationTab icon={() => <MyIcon name="home-outline" />} />
-          <BottomNavigationTab icon={() => <MyIcon name="question-mark-outline" />} />
-          <BottomNavigationTab icon={() => <MyIcon name="question-mark-outline" />} />
+          <BottomNavigationTab icon={() => <IonIcon name="cut-outline" />} />
+          <BottomNavigationTab icon={() => <IonIcon name="happy-outline" />} />
           <BottomNavigationTab icon={() => <MyIcon name="shopping-cart-outline" />} />
           <BottomNavigationTab icon={() => <MyIcon name="person-outline" />} onPress={() => setVisible(true)} />
         </BottomNavigation>
@@ -180,3 +201,7 @@ const styles = StyleSheet.create({
 });
 
 export default Home2Screen;
+function setSelectedIndex(index: number) {
+  throw new Error('Function not implemented.');
+}
+
