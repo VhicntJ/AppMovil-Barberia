@@ -11,6 +11,7 @@ import { HomeSeleccionProduc } from '../screens/product/HomeSeleccionProduc';
 import { HomeSeleccionProducFinal } from '../screens/product/HomeSeleccionProducFinal';
 import { HomeCarrito } from '../screens/product/HomeCarrito';
 import { ProfileScreen } from '../screens/Profile/ProfileScreen';
+import { BarberCalendarioS } from '../screens/Profile/BarberCalendarioS';
 
 
 export type RootStackParams = {
@@ -26,6 +27,7 @@ export type RootStackParams = {
     HomeSeleccionProducFinal: undefined;
     HomeCarrito: undefined;
     ProfileScreen: undefined;
+    BarberCalendarioS: undefined;
 
 }
 
@@ -59,6 +61,7 @@ export const  StackNavigator = ()=> {
       <Stack.Screen name="HomeSeleccionProducFinal" component={HomeSeleccionProducFinal} />
       <Stack.Screen name="HomeCarrito" component={HomeCarrito} />
       <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <Stack.Screen name="BarberCalendarioS" component={BarberCalendarioS} />
     </Stack.Navigator>
   );
 }

@@ -18,6 +18,7 @@ export const Home2Screen = () => {
 
   const handleShapePress = (shapeName: string) => {
     console.log(`Shape ${shapeName} presionado`);
+    navigation.navigate('HomeSeleccion' as never );
   };
 
   const topState = useBottomNavigationState();

@@ -8,7 +8,8 @@ import { useAuthStore } from '../../store/auth/useAuthStore';
 
 import { IonIcon } from '../../components/ui/IonIcon';
 
-export const ProfileScreen = () => {
+
+export const BarberCalendarioS = () => {
   const [visible, setVisible] = React.useState(false);
   const [selectedItem, setSelectedItem] = React.useState('');
 
@@ -39,70 +40,33 @@ export const ProfileScreen = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFF9F6" }}>
       <Button onPress={logout}>Cerrar sesión</Button>
       <Layout style={{ flex: 1, backgroundColor: "#FFF9F6", margin: 20 }}>
-        <Text style={{ fontSize: 45, color: "#421B36", fontWeight: "bold" }}>Bienvenido,</Text>
-        <Text style={{ fontSize: 30, color: "#421B36", fontWeight: "bold" }}>Siguiente Sesion: </Text>
-      
-      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <Text style={{ fontSize: 25, color: "#421B36", backgroundColor: "#FFF9F6", fontWeight: "bold", textAlign: "center" }}>Mi Agenda</Text>
+        <Layout style={{ width: "auto", height: 10, backgroundColor: "rgba(139, 200, 185, 0.34)", borderRadius: 100 }} />    
             
             <View style={styles.rectangleContainer}>
-              <TouchableOpacity onPress={() => handleShapePress('Horario : 13:00 - Miercoles')}>
                 <Layout style={styles.rectangle}>
                   <View style={styles.innerContainer}>
-                    <View style={styles.smallSquare} />
                     <View style={styles.textContainer}>
-                      <Text style={styles.titleText}>Horario : 13:00 - Miercoles</Text>
-                      <Text style={styles.subtitleText}>Cliente : Pedro Martinez</Text>
+                      <Text style={styles.title2Text}>Selecciona un bloque para mas informacion</Text>
                     </View>
                   </View>
                 </Layout>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleShapePress('Horario : 14:00 - Miercoles')}>
-                <Layout style={styles.rectangle}>
-                  <View style={styles.innerContainer}>
-                    <View style={styles.smallSquare} />
-                    <View style={styles.textContainer}>
-                      <Text style={styles.titleText}>Horario : 14:00 - Miercoles</Text>
-                      <Text style={styles.subtitleText}>Cliente : Juan Pereira</Text>
-                    </View>
-                  </View>
-                </Layout>
-              </TouchableOpacity>
+                <View style={styles.largeSquare}>
+              <Text style={styles.largeSquareText}>Seleccionar hora (Calendario)</Text>
             </View>
-          </ScrollView>
+             
+            </View>
+          
           <Layout>
             
-  <Layout style={[styles.rectangle, { backgroundColor: '#8BC8B9' }]}>
-  <TouchableOpacity onPress={() => navigation.navigate('BarberCalendarioS'as never)}>
+  <Layout style={[styles.rectangle2, { backgroundColor: '#8BC8B9' }]}>
   <View style={styles.productInfoContainer}>
-    <IonIcon name="calendar-outline" size={40} />
-    <Text style={styles.title2Text}>Calendario Semanal</Text>
+    <IonIcon name="warning-outline" size={40} />
+    <Text style={styles.title3Text}>Recuerda que puedes volver a habilitar o bloquear un bloque de tu horario segun tu preferencia</Text>
   </View>
-</TouchableOpacity>
+
   </Layout>
-  <Layout style={[styles.rectangle, { backgroundColor: '#F5908F' }]}>
-    <TouchableOpacity onPress={() => handleShapePress('Chat Clientes')}>
-      <View style={styles.productInfoContainer}>
-        <IonIcon name="chatbubble-ellipses-outline" size={40}/>
-        <Text style={styles.title2Text}>Chat Clientes</Text>
-      </View>
-    </TouchableOpacity>
-  </Layout>
-  <Layout style={[styles.rectangle, { backgroundColor: '#FBCE85' }]}>
-    <TouchableOpacity onPress={() => handleShapePress('Clientes')}>
-      <View style={styles.productInfoContainer}>
-        <IonIcon name="people-outline" size={40} />
-        <Text style={styles.title2Text}>Clientes</Text>
-      </View>
-    </TouchableOpacity>
-  </Layout>
-  <Layout style={[styles.rectangle, { backgroundColor: '#3F8FE4' }]}>
-    <TouchableOpacity onPress={() => handleShapePress('Modificación Horario')}>
-      <View style={styles.productInfoContainer}>
-        <IonIcon name="create-outline" size={40} />
-        <Text style={styles.title2Text} >Modificación Horario</Text>
-      </View>
-    </TouchableOpacity>
-  </Layout>
+
 </Layout>
           </Layout>
           <Modal
@@ -173,19 +137,33 @@ const styles = StyleSheet.create({
   rectangleContainer: {
     marginTop: 20,
     width: '100%',
+    height: 400,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 4,
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
   },
   rectangle: {
-    height: 100,
-    backgroundColor: 'rgba(245, 144, 143, 0.49)', // Color con opacidad
+    height: 50,
+    backgroundColor: 'rgba(60, 170, 152, 0.2)', // Color con opacidad
     justifyContent: 'center',
+    
+    alignItems: 'flex-start',
+    marginBottom: 10,
+    borderRadius: 10,
+    padding: 10
+    
+    
+  },
+  rectangle2: {
+    height: 100,
+    backgroundColor: 'rgba(220, 251, 246, 0.50)', // Color con opacidad
+    justifyContent: 'center',
+    
     alignItems: 'flex-start',
     marginBottom: 10,
     borderRadius: 10,
@@ -214,10 +192,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   title2Text: {
-    fontSize: 23,
-    color: '#ffffff',
-    fontWeight: 'bold',
+    fontSize: 17,
+    color: '#000000',
+    fontWeight: "700",
     marginLeft:15,
+  },
+  title3Text: {
+    fontSize: 15,
+    color: '#000000',
+    fontWeight: "700",
+    marginLeft:10,
   },
   subtitleText: {
     fontSize: 14,
@@ -278,7 +262,29 @@ const styles = StyleSheet.create({
   addIcon: {
     marginLeft: 10,
     color: '#ffffff',
-  }
+  },
+  largeSquare: {
+    width: '100%',
+    height: 300,
+    backgroundColor: '#FBCE85',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 20,
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 3,
+  },
+  largeSquareText: {
+    fontSize: 20,
+    color: '#421B36',
+    textAlign: 'center',
+  },
 });
 
 export default styles;
