@@ -7,6 +7,7 @@ import { Text, View, useColorScheme } from 'react-native'
 import { StackNavigator } from './presentation/navigation/StackNavigator';
 import Toast from 'react-native-toast-message'; // Importa la librería de Toast
 import 'react-native-gesture-handler';
+import { AuthProvider } from './presentation/providers/AuthProvider';
 
 export const ProductsApp = () => {
   
@@ -34,9 +35,10 @@ export const ProductsApp = () => {
         notification: theme['color-primary-500'],
       },
     
-    }}> 
+    }}>
+      <AuthProvider>
     <StackNavigator/>
-
+    </AuthProvider> 
     </NavigationContainer>
     
     </ApplicationProvider>

@@ -1,8 +1,9 @@
 import React from 'react';
 import { BottomNavigation, BottomNavigationProps, BottomNavigationTab, Divider, Icon, Input, Layout, Modal, Text } from '@ui-kitten/components';
-import { SafeAreaView, StyleSheet, ScrollView, View, Image, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StyleSheet, ScrollView, View, Image, TouchableOpacity, Button } from 'react-native';
 import { MyIcon } from '../../components/ui/MyIcon';
 import { useNavigation } from '@react-navigation/native';
+import { useAuthStore } from '../../store/auth/useAuthStore';
 
 export const Home2Screen = () => {
   const [visible, setVisible] = React.useState(false);
@@ -21,9 +22,15 @@ export const Home2Screen = () => {
 
   const navigation = useNavigation();
 
+  const {logout} = useAuthStore();
+
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFF9F6" }}>
+      <Button
+        title="Cerrar sesión"
+        onPress={logout}
+      />
       <Layout style={{ flex: 1, backgroundColor: "#FFF9F6", margin: 20 }}>
         <Text style={{ fontSize: 45, color: "#421B36", fontWeight: "bold" }}>Bienvenido,</Text>
         <Text style={{ fontSize: 30, color: "#421B36", fontWeight: "bold" }}>Elige tu corte</Text>
