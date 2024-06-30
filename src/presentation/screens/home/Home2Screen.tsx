@@ -7,6 +7,10 @@ import { useAuthStore } from '../../store/auth/useAuthStore';
 
 
 import { IonIcon } from '../../components/ui/IonIcon';
+import { getProductsByPage } from '../auth/products/get-products-by-page';
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { FullScreenLoader } from '../../components/ui/FullScreenLoader';
+import { ProductList } from '../../components/products/ProductList';
 
 export const Home2Screen = () => {
   const [visible, setVisible] = React.useState(false);
@@ -27,6 +31,21 @@ export const Home2Screen = () => {
   const navigation = useNavigation();
 
   const {logout} = useAuthStore();
+
+  const {isLoading , data ,fetchNextPage} = useInfiniteQuery({
+    queryKey : ['products', "infinite"],
+    staleTime: 1000 * 60 * 60,
+    initialPageParam: 0,
+
+
+    queryFn: async (params) =>{
+      console.log({params});
+      return await getProductsByPage(params.pageParam);
+    },
+    getNextPageParam: (lastPage, allPages) => allPages.length,
+  });
+
+
   const navigateToScreen = (index: number) => {
     switch (index) {
       case 0:
@@ -96,8 +115,17 @@ export const Home2Screen = () => {
 
         <Layout style={{ flex: 1 }}>
         </Layout>
-
+        {
+        isLoading
+        ? (<FullScreenLoader/>)
+        : <ProductList
+         products={data?.pages.flat() ??[]}
+         fetchNextPage={fetchNextPage}
+         />
+      }
         <ScrollView contentContainerStyle={styles.listContainer}>
+        
+          
           {Array.from({ length: 10 }).map((_, index) => (
             <TouchableOpacity key={index} onPress={() => navigation.navigate('HomeSeleccionFinal' as never)} style={styles.card}>
               <Image source={{ uri: 'https://via.placeholder.com/100' }} style={styles.cardImage} />

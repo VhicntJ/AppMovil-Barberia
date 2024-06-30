@@ -4,15 +4,17 @@ import { useAuthStore } from '../../store/auth/useAuthStore'
 import { getProductsByPage } from '../auth/products/get-products-by-page';
 import { MainLayout } from '../../layouts/MainLayout';
 import { FullScreenLoader } from '../../components/ui/FullScreenLoader';
+import { ProductList } from '../../components/products/ProductList';
+import { useQuery } from '@tanstack/react-query';
 
 
 export const HomeScreen = () => {
 
-  // const {isLoading, data: products} = useQuery({
-  //   queryKey: ["products", "infinite"],
-  //   staleTime: 1000 * 60 * 60,
-  //   queryFn: () => getProductsByPage(0),
-  // })
+   const {isLoading, data: products = []} = useQuery({
+     queryKey: ["products", "infinite"],
+     staleTime: 1000 * 60 * 60,
+     queryFn: () => getProductsByPage(0),
+   })
   
   // const {logout} = useAuthStore();
 
@@ -23,7 +25,11 @@ export const HomeScreen = () => {
     subtitle='Aplicacion administrativa'
     >
     
-      <FullScreenLoader/>
+      {
+        isLoading
+        ? (<FullScreenLoader/>)
+        : <ProductList products={products}/>
+      }
 
 
       </MainLayout>

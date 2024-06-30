@@ -1,69 +1,79 @@
-# AppMovil-Barberia
+This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# BarberApp
+# Getting Started
 
-BarberApp es una aplicación móvil desarrollada en **React Native** para **Android**, diseñada para gestionar y mejorar la experiencia en barberías. La aplicación permite a los usuarios agendar citas con barberos, informarse sobre diferentes estilos de corte de pelo, comprar productos de barbería, y más. Además, ofrece a los barberos una plataforma para administrar su barbería, gestionar horarios y añadir productos al catálogo.
+>**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Descripción del Proyecto
+## Step 1: Start the Metro Server
 
-Este proyecto fue desarrollado como parte del curso **"Electivo de especialización profesional 1"** por **Vicente Julio** y **Rony Perez**.
+First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-## Funcionalidades
+To start Metro, run the following command from the _root_ of your React Native project:
 
-### Para Usuarios
-- **Agendar Citas**: Los usuarios pueden reservar horas con sus barberos preferidos de manera sencilla.
-- **Catálogo de Cortes**: Información detallada sobre diferentes estilos de corte de pelo.
-- **Compra de Productos**: Navegar y comprar productos de barbería directamente desde la aplicación.
+```bash
+# using npm
+npm start
 
-### Para Barberos
-- **Gestión de Horarios**: Los barberos pueden gestionar y organizar sus horarios de atención.
-- **Catálogo de Productos**: Subir y administrar productos para su barbería, permitiendo a los usuarios comprarlos directamente desde la aplicación.
+# OR using Yarn
+yarn start
+```
 
-## Tecnologías Utilizadas
+## Step 2: Start your Application
 
-<table>
-  <tr>
-    <td align="center">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Native" width="50" height="50">
-    </td>
-    <td>
-      <strong>React Native</strong>: Framework principal para el desarrollo de la aplicación móvil.
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript" width="50" height="50">
-    </td>
-    <td>
-      <strong>TypeScript</strong>: Lenguaje de programación que añade tipos estáticos opcionales a JavaScript, utilizado para mejorar la calidad del código.
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/1280px-Docker_%28container_engine%29_logo.svg.png" alt="Docker" width="180" height="50">
-    </td>
-    <td>
-      <strong>Docker</strong>: Contenedorización de servicios para facilitar el desarrollo y despliegue.
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/62/MySQL.svg/1280px-MySQL.svg.png" alt="MySQL" width="160" height="50">
-    </td>
-    <td>
-      <strong>MySQL</strong>: Base de datos relacional para el almacenamiento de información estructurada.
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png" alt="MongoDB" width="160" height="50">
-    </td>
-    <td>
-      <strong>MongoDB</strong>: Base de datos no relacional para el manejo de datos flexibles y no estructurados.
-    </td>
-  </tr>
-</table>
+Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
+### For Android
 
+```bash
+# using npm
+npm run android
 
+# OR using Yarn
+yarn android
+```
 
+### For iOS
+
+```bash
+# using npm
+npm run ios
+
+# OR using Yarn
+yarn ios
+```
+
+If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+
+This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+
+## Step 3: Modifying your App
+
+Now that you have successfully run the app, let's modify it.
+
+1. Open `App.tsx` in your text editor of choice and edit some lines.
+2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+
+   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+
+## Congratulations! :tada:
+
+You've successfully run and modified your React Native App. :partying_face:
+
+### Now what?
+
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
+- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+
+# Troubleshooting
+
+If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+
+# Learn More
+
+To learn more about React Native, take a look at the following resources:
+
+- [React Native Website](https://reactnative.dev) - learn more about React Native.
+- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
+- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
+- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
+- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.

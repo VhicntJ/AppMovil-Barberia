@@ -1,21 +1,21 @@
 import { Button, Input, Layout,Text } from "@ui-kitten/components"
-import { Alert, ImageBackground, useWindowDimensions } from "react-native"
-import { ScrollView } from "react-native-gesture-handler"
-import { MyIcon } from "../../components/ui/MyIcon";
+import { Alert, ImageBackground, ScrollView, useWindowDimensions } from "react-native"
+//import { ScrollView } from "react-native-gesture-handler"
+import { MyIcon } from "../../src/presentation/components/ui/MyIcon";
 import { StackNavigationProp, StackScreenProps } from "@react-navigation/stack";
-import { RootStackParams, StackNavigator } from "../../navigation/StackNavigator";
+import { RootStackParams, StackNavigator } from "../../src/presentation/navigation/StackNavigator";
 import { API_URL ,STAGE } from "@env";
 import { useState } from "react";
-import { useAuthStore } from "../../store/auth/useAuthStore";
+import { useAuthStore } from "../../src/presentation/store/auth/useAuthStore";
 import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import { NavigationContainer } from "@react-navigation/native";
 
-interface Props extends StackScreenProps<RootStackParams, 'LoginScreen'> {}
+interface Props extends StackScreenProps<RootStackParams, 'LoginScreen2'> {}
 
 
 
 
-export const LoginScreen = ({navigation}: Props) =>{
+export const LoginScreen2 = ({navigation}: Props) =>{
 
   const {login}= useAuthStore();
   const [isPosting, setIsPosting] = useState(false);
@@ -144,3 +144,82 @@ export const LoginScreen = ({navigation}: Props) =>{
       // </ImageBackground>
     )
 }
+
+
+
+/** 
+ * Pruebas Unitarias para LoginScreen
+ * 
+ * Estas pruebas usan Jest y están integradas en el mismo archivo de componente.
+ */
+
+
+// Mock para useAuthStore
+// Mock para useAuthStore
+jest.mock('../../src/presentation/store/auth/useAuthStore');
+
+describe('LoginScreen', () => {
+  const mockLogin = jest.fn();
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+    (useAuthStore as unknown as jest.Mock).mockReturnValue({
+      login: mockLogin,
+      status: 'unauthenticated',
+      token: undefined,
+      user: undefined,
+      register: jest.fn(),
+      checkStatus: jest.fn(),
+      logout: jest.fn(),
+    });
+  });
+  
+  it('should not attempt login if email or password is empty', () => {
+    const { getByPlaceholderText, getByText } = render(
+      <NavigationContainer>
+        <StackNavigator />
+      </NavigationContainer>
+    );
+
+    fireEvent.changeText(getByPlaceholderText('Correo Electronico'), '');
+    fireEvent.changeText(getByPlaceholderText('Contraseña'), '');
+    fireEvent.press(getByText('Iniciar Sesion'));
+
+    expect(mockLogin).not.toHaveBeenCalled();
+  });
+
+  it('should attempt login with valid email and password', async () => {
+    mockLogin.mockResolvedValue(true);
+    const { getByPlaceholderText, getByText } = render(
+      <NavigationContainer>
+        <StackNavigator />
+      </NavigationContainer>
+    );
+
+    fireEvent.changeText(getByPlaceholderText('Correo Electronico'), 'test@example.com');
+    fireEvent.changeText(getByPlaceholderText('Contraseña'), 'password');
+    fireEvent.press(getByText('Iniciar Sesion'));
+
+    await waitFor(() => {
+      expect(mockLogin).toHaveBeenCalledWith('test@example.com', 'password');
+    });
+  });
+
+  it('should show error alert on failed login', async () => {
+    mockLogin.mockResolvedValue(false);
+    const alertSpy = jest.spyOn(Alert, 'alert');
+    const { getByPlaceholderText, getByText } = render(
+      <NavigationContainer>
+        <StackNavigator />
+      </NavigationContainer>
+    );
+
+    fireEvent.changeText(getByPlaceholderText('Correo Electronico'), 'test@example.com');
+    fireEvent.changeText(getByPlaceholderText('Contraseña'), 'password');
+    fireEvent.press(getByText('Iniciar Sesion'));
+
+    await waitFor(() => {
+      expect(alertSpy).toHaveBeenCalledWith("Error", "Usuario o contraseña incorrectos");
+    });
+  });
+});

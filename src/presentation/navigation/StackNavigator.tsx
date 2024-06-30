@@ -12,9 +12,11 @@ import { HomeSeleccionProducFinal } from '../screens/product/HomeSeleccionProduc
 import { HomeCarrito } from '../screens/product/HomeCarrito';
 import { ProfileScreen } from '../screens/Profile/ProfileScreen';
 import { BarberCalendarioS } from '../screens/Profile/BarberCalendarioS';
+//import { LoginScreen2 } from '../../../__tests__/Screens/loginscreen.test';
 
 
 export type RootStackParams = {
+
     LoadingScreen: undefined;
     LoginScreen: undefined;
     RegisterScreen: undefined;
@@ -28,6 +30,7 @@ export type RootStackParams = {
     HomeCarrito: undefined;
     ProfileScreen: undefined;
     BarberCalendarioS: undefined;
+    // LoginScreen2: undefined;
 
 }
 
@@ -62,6 +65,7 @@ export const  StackNavigator = ()=> {
       <Stack.Screen name="HomeCarrito" component={HomeCarrito} />
       <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
       <Stack.Screen name="BarberCalendarioS" component={BarberCalendarioS} />
+      {/* <Stack.Screen name="LoginScreen2" component={LoginScreen2} /> */}
     </Stack.Navigator>
   );
 }

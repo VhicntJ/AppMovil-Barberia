@@ -8,6 +8,11 @@ import { StackNavigator } from './presentation/navigation/StackNavigator';
 import Toast from 'react-native-toast-message'; // Importa la librería de Toast
 import 'react-native-gesture-handler';
 import { AuthProvider } from './presentation/providers/AuthProvider';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+
+const queryClient = new QueryClient()
+
 
 export const ProductsApp = () => {
   
@@ -20,7 +25,7 @@ export const ProductsApp = () => {
 
   return (
 
-    <>
+    <QueryClientProvider client={queryClient}>
     <IconRegistry icons={EvaIconsPack} />
     <ApplicationProvider
     {...eva} theme={theme}>
@@ -42,6 +47,6 @@ export const ProductsApp = () => {
     </NavigationContainer>
     
     </ApplicationProvider>
-    </>
+    </QueryClientProvider>
   )
 }
