@@ -4,8 +4,6 @@ import { SafeAreaView, StyleSheet, ScrollView, View, Image, TouchableOpacity,  }
 import { MyIcon } from '../../components/ui/MyIcon';
 import { useNavigation } from '@react-navigation/native';
 import { useAuthStore } from '../../store/auth/useAuthStore';
-
-
 import { IonIcon } from '../../components/ui/IonIcon';
 
 

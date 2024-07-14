@@ -37,90 +37,105 @@ export const ProfileScreen = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFF9F6" }}>
-      <Button onPress={logout}>Cerrar sesión</Button>
+      <Button style={styles.payButton} onPress={logout}>Cerrar sesión</Button>
       <Layout style={{ flex: 1, backgroundColor: "#FFF9F6", margin: 20 }}>
         <Text style={{ fontSize: 45, color: "#421B36", fontWeight: "bold" }}>Bienvenido,</Text>
         <Text style={{ fontSize: 30, color: "#421B36", fontWeight: "bold" }}>Siguiente Sesion: </Text>
-      
-      <ScrollView contentContainerStyle={styles.scrollViewContent}>
-            
-            <View style={styles.rectangleContainer}>
-              <TouchableOpacity onPress={() => handleShapePress('Horario : 13:00 - Miercoles')}>
-                <Layout style={styles.rectangle}>
-                  <View style={styles.innerContainer}>
-                    <View style={styles.smallSquare} />
-                    <View style={styles.textContainer}>
-                      <Text style={styles.titleText}>Horario : 13:00 - Miercoles</Text>
-                      <Text style={styles.subtitleText}>Cliente : Pedro Martinez</Text>
-                    </View>
+
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
+
+          <View style={styles.rectangleContainer}>
+            <TouchableOpacity onPress={() => handleShapePress('Horario : 13:00 - Miercoles')}>
+              <Layout style={styles.rectangle}>
+                <View style={styles.innerContainer}>
+                  <View style={styles.smallSquare} />
+                  <View style={styles.textContainer}>
+                    <Text style={styles.titleText}>Horario : 13:00 - Miercoles</Text>
+                    <Text style={styles.subtitleText}>Cliente : Pedro Martinez</Text>
                   </View>
-                </Layout>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleShapePress('Horario : 14:00 - Miercoles')}>
-                <Layout style={styles.rectangle}>
-                  <View style={styles.innerContainer}>
-                    <View style={styles.smallSquare} />
-                    <View style={styles.textContainer}>
-                      <Text style={styles.titleText}>Horario : 14:00 - Miercoles</Text>
-                      <Text style={styles.subtitleText}>Cliente : Juan Pereira</Text>
-                    </View>
+                </View>
+              </Layout>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handleShapePress('Horario : 14:00 - Miercoles')}>
+              <Layout style={styles.rectangle}>
+                <View style={styles.innerContainer}>
+                  <View style={styles.smallSquare} />
+                  <View style={styles.textContainer}>
+                    <Text style={styles.titleText}>Horario : 14:00 - Miercoles</Text>
+                    <Text style={styles.subtitleText}>Cliente : Juan Pereira</Text>
                   </View>
-                </Layout>
-              </TouchableOpacity>
-            </View>
-          </ScrollView>
-          <Layout>
+                </View>
+              </Layout>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handleShapePress('Horario : 14:00 - Miercoles')}>
+              <Layout style={styles.rectangle}>
+                <View style={styles.innerContainer}>
+                  <View style={styles.smallSquare} />
+                  <View style={styles.textContainer}>
+                    <Text style={styles.titleText}>Horario : 15:00 - Miercoles</Text>
+                    <Text style={styles.subtitleText}>Cliente : Lukas Campusano</Text>
+                  </View>
+                </View>
+              </Layout>
+            </TouchableOpacity>
             
-  <Layout style={[styles.rectangle, { backgroundColor: '#8BC8B9' }]}>
-  <TouchableOpacity onPress={() => navigation.navigate('BarberCalendarioS'as never)}>
-  <View style={styles.productInfoContainer}>
-    <IonIcon name="calendar-outline" size={40} />
-    <Text style={styles.title2Text}>Calendario Semanal</Text>
-  </View>
-</TouchableOpacity>
-  </Layout>
-  <Layout style={[styles.rectangle, { backgroundColor: '#F5908F' }]}>
-    <TouchableOpacity onPress={() => handleShapePress('Chat Clientes')}>
-      <View style={styles.productInfoContainer}>
-        <IonIcon name="chatbubble-ellipses-outline" size={40}/>
-        <Text style={styles.title2Text}>Chat Clientes</Text>
-      </View>
-    </TouchableOpacity>
-  </Layout>
-  <Layout style={[styles.rectangle, { backgroundColor: '#FBCE85' }]}>
-    <TouchableOpacity onPress={() => handleShapePress('Clientes')}>
-      <View style={styles.productInfoContainer}>
-        <IonIcon name="people-outline" size={40} />
-        <Text style={styles.title2Text}>Clientes</Text>
-      </View>
-    </TouchableOpacity>
-  </Layout>
-  <Layout style={[styles.rectangle, { backgroundColor: '#3F8FE4' }]}>
-    <TouchableOpacity onPress={() => handleShapePress('Modificación Horario')}>
-      <View style={styles.productInfoContainer}>
-        <IonIcon name="create-outline" size={40} />
-        <Text style={styles.title2Text} >Modificación Horario</Text>
-      </View>
-    </TouchableOpacity>
-  </Layout>
-</Layout>
-          </Layout>
-          <Modal
-            visible={visible}
-            backdropStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
-            onBackdropPress={closeModal}>
-            <Layout style={styles.modalContainer}>
-              <Text style={styles.modalTitle}>Horario : 13:00 - Miercoles</Text>
-              <Text style={styles.modalText}>Cliente: Pedro Martinez</Text>
-              <Text style={styles.modalText}>Servicio: Corte de Pelo</Text>
-              <View style={styles.modalButtons}>
-                <Button style={styles.greenButton}>Estoy a la hora</Button>
-                <Button style={styles.redButton}>
-                  Atrasar 15 minutos
-                </Button>
+          </View>
+        </ScrollView>
+
+        <Layout>
+          <TouchableOpacity onPress={() => navigation.navigate('BarberCalendarioS' as never)}>
+            <Layout style={[styles.rectangle, { backgroundColor: '#8BC8B9' }]}>
+              <View style={styles.productInfoContainer}>
+                <IonIcon name="calendar-outline" size={40} />
+                <Text style={styles.title2Text}>Calendario Semanal</Text>
               </View>
             </Layout>
-          </Modal>
+          </TouchableOpacity>
+
+          {/* <TouchableOpacity onPress={() => handleShapePress('Chat Clientes')}>
+            <Layout style={[styles.rectangle, { backgroundColor: '#F5908F' }]}>
+              <View style={styles.productInfoContainer}>
+                <IonIcon name="chatbubble-ellipses-outline" size={40} />
+                <Text style={styles.title2Text}>Chat Clientes</Text>
+              </View>
+            </Layout>
+          </TouchableOpacity> */}
+
+          <TouchableOpacity onPress={() => navigation.navigate('Clientes' as never)}>
+            <Layout style={[styles.rectangle, { backgroundColor: '#FBCE85' }]}>
+              <View style={styles.productInfoContainer}>
+                <IonIcon name="people-outline" size={40} />
+                <Text style={styles.title2Text}>Clientes</Text>
+              </View>
+            </Layout>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigation.navigate('Calendario' as never)}>
+            <Layout style={[styles.rectangle, { backgroundColor: '#3F8FE4' }]}>
+              <View style={styles.productInfoContainer}>
+                <IonIcon name="create-outline" size={40} />
+                <Text style={styles.title2Text}>Modificación Horario</Text>
+              </View>
+            </Layout>
+          </TouchableOpacity>
+        </Layout>
+      </Layout>
+      <Modal
+        visible={visible}
+        backdropStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+        onBackdropPress={closeModal}>
+        <Layout style={styles.modalContainer}>
+          <Text style={styles.modalTitle}>Horario : 13:00 - Miercoles</Text>
+          <Text style={styles.modalText}>Cliente: Pedro Martinez</Text>
+          <Text style={styles.modalText}>Servicio: Corte de Pelo</Text>
+          <View style={styles.modalButtons}>
+            <Button style={styles.greenButton}>Estoy a la hora</Button>
+            <Button style={styles.redButton}>
+              Atrasar 15 minutos
+            </Button>
+          </View>
+        </Layout>
+      </Modal>
     </SafeAreaView>
   )
 }
@@ -278,7 +293,15 @@ const styles = StyleSheet.create({
   addIcon: {
     marginLeft: 10,
     color: '#ffffff',
-  }
+  },
+  payButton: {
+    marginTop: 10,
+    marginRight: 10,
+    backgroundColor: '#421B36',
+    borderColor: '#421B36',
+    width: 100,
+    alignSelf: 'flex-end',
+  },
 });
 
 export default styles;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { BottomNavigation, BottomNavigationProps, BottomNavigationTab, Divider, Input,Icon, Layout, Modal, Text } from '@ui-kitten/components';
-import { SafeAreaView, StyleSheet, ScrollView, View, Image, TouchableOpacity, Button } from 'react-native';
+import { BottomNavigation, BottomNavigationProps, BottomNavigationTab, Divider, Input,Icon, Layout, Modal, Text, Button } from '@ui-kitten/components';
+import { SafeAreaView, StyleSheet, ScrollView, View, Image, TouchableOpacity } from 'react-native';
 import { MyIcon } from '../../components/ui/MyIcon';
 import { useNavigation } from '@react-navigation/native';
 import { useAuthStore } from '../../store/auth/useAuthStore';
@@ -68,9 +68,9 @@ export const Home2Screen = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFF9F6" }}>
       <Button
-        title="Cerrar sesión"
-        onPress={logout}
-      />
+        style={styles.payButton}
+        onPress={logout} >Cerrar sesión</Button>
+      
       <Layout style={{ flex: 1, backgroundColor: "#FFF9F6", margin: 20 }}>
         <Text style={{ fontSize: 45, color: "#421B36", fontWeight: "bold" }}>Bienvenido,</Text>
         <Text style={{ fontSize: 30, color: "#421B36", fontWeight: "bold" }}>Elige tu corte</Text>
@@ -115,14 +115,14 @@ export const Home2Screen = () => {
 
         <Layout style={{ flex: 1 }}>
         </Layout>
-        {
+        {/* {
         isLoading
         ? (<FullScreenLoader/>)
         : <ProductList
          products={data?.pages.flat() ??[]}
          fetchNextPage={fetchNextPage}
          />
-      }
+      } */}
         <ScrollView contentContainerStyle={styles.listContainer}>
         
           
@@ -224,8 +224,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginHorizontal: 10,
-    marginVertical: 10, // Añadido margen vertical
-    marginBottom: 40, // Añadido margen inferior
+    marginBottom: 70, // Añadido margen inferior
+  },
+  payButton: {
+    marginTop: 10,
+    marginRight: 10,
+    backgroundColor: '#421B36',
+    borderColor: '#421B36',
+    width: 100,
+    alignSelf: 'flex-end',
   },
 });
 

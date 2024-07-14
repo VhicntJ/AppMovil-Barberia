@@ -38,11 +38,11 @@ export const RegisterScreen = ({ navigation }: Props) => {
   return (
     <Layout style={{ flex: 1 }}>
       <ScrollView style={{ marginHorizontal: 40 }}>
-        <Layout style={{ paddingTop: height * 0.15 }}>
+        <Layout style={{ paddingTop: height * 0.30 }}>
           <Text category="h1">Crear Cuenta</Text>
           <Text category="p2">Por favor, crea una cuenta para continuar</Text>
         </Layout>
-        <Layout style={{ paddingTop: height * 0.030, alignItems: "center" }}>
+        {/* <Layout style={{ paddingTop: height * 0.030, alignItems: "center" }}>
           <Text category="h5">Registro con Google</Text>
         </Layout>
         <Layout style={{ paddingTop: height * 0.010 }}>
@@ -54,7 +54,7 @@ export const RegisterScreen = ({ navigation }: Props) => {
           >
             Continua con Google
           </Button>
-        </Layout>
+        </Layout> */}
         <Layout style={{ marginTop: 20 }}>
           <Input
             placeholder="Correo Electronico"

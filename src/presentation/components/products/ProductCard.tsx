@@ -4,16 +4,24 @@ import { Image, Text } from 'react-native'
 
 import { Product } from 'src/domain/entities/product'
 import { FadeInImage } from '../ui/FadeInImage'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
+import { RootStackParams } from 'src/presentation/navigation/StackNavigator'
 
 
 interface Props{
     product: Product
 }
 
+
 export const ProductCard = ({product}: Props) => {
-  return (
+  
+  const navigation = useNavigation<NavigationProp<RootStackParams>>();
+
+
+    return (
     
     <Card   style={{flex:1,backgroundColor:"#F9F9F9",margin:3}}
+    onPress={()=>navigation.navigate("ProductScreen",{ productId: product.id})}
     >
 
         {

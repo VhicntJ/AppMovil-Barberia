@@ -24,7 +24,7 @@ export const LoginScreen = ({navigation}: Props) =>{
     password: '',
   });
 
-  console.log({apiUrl: API_URL, stage: STAGE});
+  // console.log({apiUrl: API_URL, stage: STAGE});
 
 
 
@@ -52,7 +52,7 @@ export const LoginScreen = ({navigation}: Props) =>{
       //   resizeMode="cover"
       // >
       <Layout style={{flex:1}}>
-        <ScrollView style={{marginHorizontal: 40}}>
+        <ScrollView style={{marginHorizontal: 20,}}>
         <Layout  style={{height: 100, backgroundColor:"rgba(245, 145, 143, 0.16)",borderRadius:100}} level="1"></Layout>
 
           <Layout style={{paddingTop: height * 0.19, alignItems:"center"}}>
@@ -65,7 +65,7 @@ export const LoginScreen = ({navigation}: Props) =>{
           </Layout>
 
 
-          <Layout>
+          {/* <Layout>
             <Button style={{marginLeft: width * 0.10, marginRight: width * 0.10,backgroundColor: "#3F8FE4",borderColor: "#3F8FE4"}}
             accessoryLeft={<MyIcon name="google" white/>}
             
@@ -74,10 +74,10 @@ export const LoginScreen = ({navigation}: Props) =>{
               >
               Continua con Google
             </Button>
-          </Layout>
+          </Layout> */}
           <Layout style={{paddingTop: 20, alignItems:"center"}}>
             
-            <Text category="h6">O utiliza tu correo</Text>
+            <Text category="h6">Utiliza tu correo para Iniciar Sesion</Text>
           </Layout>
 
           <Layout style={{marginTop: 20}}>
@@ -118,7 +118,7 @@ export const LoginScreen = ({navigation}: Props) =>{
               Iniciar Sesion
             </Button>
           </Layout>
-          <Text> {JSON.stringify(form,null,2)}</Text>
+          {/* <Text> {JSON.stringify(form,null,2)}</Text> */}
 
           {/* Informacion para crear cuenta */}
           <Layout style={{height:50 }} />
